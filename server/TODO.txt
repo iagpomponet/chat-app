@@ -1,0 +1,29 @@
+CRUD
+
+TODO: 
+
+* Auth
+* Contact
+    Entitie
+    Create 
+    Read
+    Update
+    Delete
+* Message
+    Entitie
+    Create 
+    Read
+    Update
+    Delete
+* MessageGroup
+    Entitie
+    Create 
+    Read
+    Update
+    Delete
+* GroupMember
+    Entitie
+    Create 
+    Read
+    Update
+    Delete
