@@ -12,7 +12,7 @@ interface ContactRequest {
     email: string;
 }
 
-export class CreateContactService {
+class CreateContactUseCase {
     async execute({ firstName, lastName, password, email }: ContactRequest) : Promise<Contact>{
         // TODO: Should not create an user with an existing email
         // TODO: We should encrypt password
@@ -45,3 +45,5 @@ export class CreateContactService {
         return contact;
     }
 }
+
+export { CreateContactUseCase };

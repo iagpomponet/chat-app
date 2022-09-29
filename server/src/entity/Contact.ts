@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn, Timestamp, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { v4 as uuid } from 'uuid'; 
 
 // the value here vvv ("contacts") is related to the table which this entity is related to
@@ -21,6 +21,12 @@ export class Contact {
 
     @Column()
     profilePhoto: string
+
+    @CreateDateColumn()
+    createdAt: Timestamp
+
+    @UpdateDateColumn()
+    updatedAt: Timestamp
 
 
     constructor(){
