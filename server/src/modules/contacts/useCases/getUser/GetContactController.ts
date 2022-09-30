@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import { handleError } from '../../../../utils/error';
 import { defaultSuccessMessage } from '../../../../utils/success';
-import { GetUserUseCase } from './GetUserUseCase';
+import { GetContactUseCase } from './GetContactUseCase';
 
-class GetUserController {
+class GetContactController {
     async handle(req: Request, res: Response) {
         const query = req?.query;
-        const getUserUseCase = new GetUserUseCase();
+        const getUserUseCase = new GetContactUseCase();
 
         try {
             const response = await getUserUseCase.execute(query);
@@ -19,4 +19,4 @@ class GetUserController {
     }
 }
 
-export { GetUserController };
+export { GetContactController };

@@ -2,13 +2,16 @@ CRUD
 
 TODO: 
 
-* Auth
 * Contact
-    Entitie
-    Create 
-    Read
-    Update
+    Entitie X
+    Create X
+    Read X
+    Update X
     Delete
+
+* Auth 
+* Login
+
 * Message
     Entitie
     Create 

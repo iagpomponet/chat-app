@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { handleError } from '../../../../utils/error';
 import { defaultSuccessMessage } from '../../../../utils/success';
-import { UpdateUserUseCase } from './UpdateUserUseCase';
+import { UpdateUserUseCase } from './UpdateContactUseCase';
 
 class UpdateUserController {
     async handle(req: Request, res: Response) {

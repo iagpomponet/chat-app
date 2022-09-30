@@ -23,6 +23,7 @@
    },
    "scripts": {
       "start": "nodemon src/index.ts",
-      "typeorm": "typeorm-ts-node-esm"
+      "typeorm": "typeorm-ts-node-esm",
+      "db:start": "docker-compose up"
    }
 }

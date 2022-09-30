@@ -1,13 +1,15 @@
 import * as express from 'express';
-import { CreateUserController } from '../modules/contacts/useCases/createUser/CreateUserController';
-import { GetUserController } from '../modules/contacts/useCases/getUser/GetUserController';
-import { UpdateUserController } from '../modules/contacts/useCases/updateUser/UpdateUserController';
+import { CreateUserController } from '../modules/contacts/useCases/createContact/CreateContactController';
+import { DeleteContactController } from '../modules/contacts/useCases/deleteContact/DeleteContactController';
+import { GetContactController } from '../modules/contacts/useCases/getUser/GetContactController';
+import { UpdateUserController } from '../modules/contacts/useCases/updateUser/UpdateContactController';
 
 const router = express.Router();
 
 const createContactController = new CreateUserController();
-const getUserController = new GetUserController();
+const getUserController = new GetContactController();
 const updateUserController = new UpdateUserController();
+const deleteUserController = new DeleteContactController();
 
 // TODO: Uptade user 
 // TODO: Delete user 
@@ -15,13 +17,16 @@ const updateUserController = new UpdateUserController();
 
 
 // Create User
-router.post('/signup', createContactController.handle)
+router.post('/signup', createContactController.handle);
 
 // Get user by query
-router.get('/', getUserController.handle)
+router.get('/', getUserController.handle);
 
 // update user
-router.put('/:id', updateUserController.handle)
+router.put('/:id', updateUserController.handle);
+
+//delete user
+router.delete('/:id', deleteUserController.handle);
 
 
 export default router;
