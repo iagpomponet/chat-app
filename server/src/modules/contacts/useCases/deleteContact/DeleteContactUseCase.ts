@@ -1,4 +1,4 @@
-import { ERRORS } from "../../../../constants/errors";
+import { ERRORS, SUCCESS } from "../../../../messages/errors";
 import { AppDataSource } from "../../../../data-source";
 import { Contact } from "../../../../entity/Contact";
 import { AppError } from "../../../../errors/AppError";
@@ -14,7 +14,7 @@ class DeleteContactUseCase {
 
         console.log('response :>> ', response);
 
-        return "Contact deleted";
+        return SUCCESS.DELETED_CONTACT;
     }
 }
 

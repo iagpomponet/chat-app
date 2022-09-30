@@ -3,5 +3,9 @@ const ERRORS = {
     NO_CONTACT_FOUND: "No contact found with this data"
 }
 
+const SUCCESS = {
+    DELETED_CONTACT: "Account deleted"
+}
 
-export { ERRORS }
+
+export { ERRORS, SUCCESS }
