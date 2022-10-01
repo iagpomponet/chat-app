@@ -1,27 +1,29 @@
-import * as express from 'express';
-import * as morgan from 'morgan';
+import * as express from "express";
+import * as morgan from "morgan";
+import * as dotenv from "dotenv";
 
-import { AppDataSource } from "./data-source"
-import { Contact } from "./entity/Contact"
+import { AppDataSource } from "./data-source";
+import { Contact } from "./entity/Contact";
 
-import contactsRoutes from './routes/contacts.routes';
+import contactsRoutes from "./routes/contacts.routes";
 
+// get config vars
+dotenv.config();
 
-
-AppDataSource.initialize().then(async () => {
+AppDataSource.initialize()
+  .then(async () => {
     const app = express();
 
     app.listen(3000, () => {
-        console.log('server running');
-    })
+      console.log("server running");
+    });
 
     // development logs
-    app.use(morgan('dev'));
+    app.use(morgan("dev"));
 
     // this is for being able to get body json from request
     app.use(express.json());
 
-    app.use('/contacts', contactsRoutes);
-}).catch(error => console.log(error))
-
-
+    app.use("/contacts", contactsRoutes);
+  })
+  .catch((error) => console.log(error));
