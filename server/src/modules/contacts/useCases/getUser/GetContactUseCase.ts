@@ -1,5 +1,5 @@
 import { FindOptionsWhere } from "typeorm";
-import { ERRORS } from "../../../../messages/errors";
+import { ERRORS } from "../../../../messages/responses";
 import { AppDataSource } from "../../../../data-source";
 import { Contact } from "../../../../entity/Contact";
 import { AppError } from "../../../../errors/AppError";

@@ -1,4 +1,4 @@
-import { ERRORS, SUCCESS } from "../../../../messages/errors";
+import { ERRORS, SUCCESS } from "../../../../messages/responses";
 import { AppDataSource } from "../../../../data-source";
 import { Contact } from "../../../../entity/Contact";
 import { AppError } from "../../../../errors/AppError";

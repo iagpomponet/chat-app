@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { AppError, AppErrorObj } from '../../../../errors/AppError';
+import { authCookieConfig, authCookieName } from '../../../../utils/auth';
 import { handleError } from '../../../../utils/error';
 import { CreateContactUseCase } from './CreateContactUseCase';
 
@@ -9,8 +10,10 @@ class CreateUserController {
         const service = new CreateContactUseCase();
         
         try {
-            const response = await service.execute({firstName, lastName, password, email});
-            return res.json(response);
+            const { data, token } = await service.execute({firstName, lastName, password, email});
+            return res
+            .cookie(authCookieName, token, authCookieConfig)
+            .json(data);
         }
         catch(err) {
             handleError(err, res);

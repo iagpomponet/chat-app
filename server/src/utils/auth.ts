@@ -1,6 +1,13 @@
 import { AppError } from "../errors/AppError";
-import { ERRORS } from "../messages/errors";
+import { ERRORS } from "../messages/responses";
 import * as jwt from "jsonwebtoken";
+
+const authCookieConfig = {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+};
+
+const authCookieName = "access_token";
 
 const generateAccessToken = (user) => {
   const secret = process.env.JWT_SECRET;
@@ -12,4 +19,4 @@ const generateAccessToken = (user) => {
   return token;
 };
 
-export { generateAccessToken };
+export { generateAccessToken, authCookieConfig, authCookieName };

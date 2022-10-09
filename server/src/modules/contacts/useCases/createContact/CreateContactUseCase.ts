@@ -1,5 +1,5 @@
 import { hash } from "bcryptjs";
-import { ERRORS } from "../../../../messages/errors";
+import { ERRORS } from "../../../../messages/responses";
 import { AppDataSource } from "../../../../data-source";
 import { Contact } from "../../../../entity/Contact";
 import { AppError } from "../../../../errors/AppError";
@@ -18,7 +18,7 @@ class CreateContactUseCase {
     lastName,
     password,
     email,
-  }: ContactRequest): Promise<Contact & { token: string }> {
+  }: ContactRequest): Promise<{data: Contact, token: string }> {
     // TODO: Should create a commom error for the application
     // TODO: Handle better the cases when one of the params above are null
     // TODO: Create token for auth
@@ -47,14 +47,11 @@ class CreateContactUseCase {
 
     await repo.save(contact);
 
-    console.log("contact :>> ", contact);
-
     // Create user token
     const token = generateAccessToken(contact);
-    console.log("token :>> ", token);
 
     return {
-      ...contact,
+      data: {...contact},
       token,
     };
   }
