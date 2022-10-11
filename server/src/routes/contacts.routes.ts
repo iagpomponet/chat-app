@@ -1,4 +1,5 @@
 import * as express from "express";
+import { HandleAuth } from "../middlewares/auth";
 import { AuthenticateUserController } from "../modules/contacts/useCases/authenticateUser/AuthenticateUserController";
 import { CreateUserController } from "../modules/contacts/useCases/createContact/CreateContactController";
 import { DeleteContactController } from "../modules/contacts/useCases/deleteContact/DeleteContactController";
@@ -13,10 +14,6 @@ const updateUserController = new UpdateUserController();
 const deleteUserController = new DeleteContactController();
 const authUserController = new AuthenticateUserController();
 
-// TODO: Uptade user
-// TODO: Delete user
-// TODO: Get user
-
 // Create User
 router.post("/signup", createContactController.handle);
 
@@ -24,12 +21,12 @@ router.post("/signup", createContactController.handle);
 router.get("/", getUserController.handle);
 
 // update user
-router.put("/:id", updateUserController.handle);
+router.put("/:id", HandleAuth, updateUserController.handle);
 
 //delete user
-router.delete("/:id", deleteUserController.handle);
+router.delete("/:id", HandleAuth, deleteUserController.handle);
 
 //authenticate
-router.post("/auth", authUserController.handle)
+router.post("/auth", authUserController.handle);
 
 export default router;

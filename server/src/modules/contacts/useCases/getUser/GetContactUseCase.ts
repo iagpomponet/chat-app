@@ -12,8 +12,6 @@ class GetContactUseCase {
 
     const contact = await repo.findBy(where);
 
-    console.log("contact :>> ", contact);
-    console.log("where :>> ", where);
     if (!contact?.length) {
       throw new AppError(ERRORS.NO_CONTACT_FOUND);
     }

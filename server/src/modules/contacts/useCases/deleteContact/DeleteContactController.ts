@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
+import { CustomRequest } from "../../../../types/express";
 import { handleError } from "../../../../utils/error";
 import { defaultSuccessMessage } from "../../../../utils/success";
 import { DeleteContactUseCase } from "./DeleteContactUseCase";
 
 class DeleteContactController {
-  async handle(req: Request, res: Response) {
+  async handle(req: CustomRequest, res: Response) {
     const { id } = req.params;
     const useCase = new DeleteContactUseCase();
 
