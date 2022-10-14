@@ -1,10 +1,10 @@
 import * as express from "express";
 import * as morgan from "morgan";
 import * as dotenv from "dotenv";
-import * as cookieParser from 'cookie-parser';
+import * as cookieParser from "cookie-parser";
+import * as cors from "cors";
 
 import { AppDataSource } from "./data-source";
-import { Contact } from "./entity/Contact";
 
 import contactsRoutes from "./routes/contacts.routes";
 
@@ -18,6 +18,8 @@ AppDataSource.initialize()
     app.listen(3000, () => {
       console.log("server running");
     });
+
+    app.use(cors());
 
     // development logs
     app.use(morgan("dev"));

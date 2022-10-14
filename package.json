@@ -1,8 +1,0 @@
-{
-  "name": "wpp",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "iagpomponet <iagosilbernagel@hotmail.com>",
-  "license": "MIT",
-  "dependencies": {}
-}
