@@ -46,12 +46,6 @@ const Login = () => {
     }
   }, [loginSuccess]);
 
-  console.log("isLoading :>> ", isLoading);
-  console.log("error :>> ", error);
-  console.log("data :>> ", data);
-
-  // TODO: Add basic validation to fields
-
   const submitForm = async () => {
     const { email, password } = getValues();
 
@@ -92,7 +86,7 @@ const Login = () => {
             </Flex>
             <Input
               id="email"
-              placeholder="email"
+              placeholder="E-mail"
               {...register("email", {
                 required: true,
               })}
@@ -105,7 +99,7 @@ const Login = () => {
             <Input
               type="password"
               id="password"
-              placeholder="password"
+              placeholder="Password"
               {...register("password", {
                 required: true,
               })}

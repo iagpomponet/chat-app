@@ -6,6 +6,7 @@ import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
 import theme from "./theme/theme";
 import "./index.css";
+import Chat from "./pages/chat/chat";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route index element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/chat" element={<Chat />} />
           </Routes>
         </Router>
       </ChakraProvider>

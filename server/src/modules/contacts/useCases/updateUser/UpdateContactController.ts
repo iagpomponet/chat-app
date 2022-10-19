@@ -9,8 +9,6 @@ class UpdateUserController {
     // TODO: PREVENT USER TO UPDATE ITS ID
     const { id } = req?.params;
     const changes = req?.body;
-
-    console.log("id :>> ", id);
     const getUserUseCase = new UpdateUserUseCase();
 
     try {

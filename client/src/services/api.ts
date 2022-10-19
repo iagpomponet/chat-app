@@ -1,14 +1,32 @@
 import axios, { AxiosError } from "axios";
-import { useMutation, UseMutationResult } from "react-query";
+import {
+  useMutation,
+  UseMutationResult,
+  useQuery,
+  UseQueryResult,
+} from "react-query";
 
 // Types
-import { AppError, LoginI, SignUpI } from "../types/api";
+import { AppError, Contact, LoginI, SignUpI } from "../types/api";
 
 const api = axios.create({
   baseURL: "http://localhost:3000",
   timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
 });
+
+api.interceptors.response.use(
+  (res) => res,
+  function (error) {
+    const {
+      response: { status },
+    } = error;
+
+    if (status === 401) {
+      window.location.replace("/");
+    }
+    return Promise.reject(error);
+  }
+);
 
 const login = ({ email, password }: LoginI) => {
   return api
@@ -35,5 +53,11 @@ export const useSignUp: () => UseMutationResult<
   SignUpI,
   unknown
 > = () => useMutation(signUp);
+
+export const getContact = (): Promise<Contact> => {
+  return api.get(`/contacts`).then((res) => res.data);
+};
+
+export const useGetContact = () => useQuery("userData", () => getContact());
 
 export default api;

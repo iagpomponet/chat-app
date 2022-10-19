@@ -18,7 +18,7 @@ const authUserController = new AuthenticateUserController();
 router.post("/signup", createContactController.handle);
 
 // Get user by query
-router.get("/", getUserController.handle);
+router.get("/", HandleAuth, getUserController.handle);
 
 // update user
 router.put("/:id", HandleAuth, updateUserController.handle);

@@ -5,6 +5,7 @@ import { Contact } from "../entity/Contact";
 import { AppError } from "../errors/AppError";
 import { ERRORS } from "../messages/responses";
 import { CustomRequest } from "../types/express";
+import { handleError } from "../utils/error";
 
 export const HandleAuth = async (
   req: CustomRequest,
@@ -39,6 +40,6 @@ export const HandleAuth = async (
       }
     }
   } catch (err) {
-    throw new AppError(ERRORS.INVALID_TOKEN, 401);
+    handleError(new AppError(ERRORS.INVALID_TOKEN, 401), res);
   }
 };

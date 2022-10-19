@@ -6,7 +6,9 @@ import { GetContactUseCase } from "./GetContactUseCase";
 
 class GetContactController {
   async handle(req: CustomRequest, res: Response) {
-    const query = req?.query;
+    const userId = req.user;
+    const where = req?.query;
+    const query = Object.keys(where).length ? where : userId;
     const getUserUseCase = new GetContactUseCase();
 
     try {

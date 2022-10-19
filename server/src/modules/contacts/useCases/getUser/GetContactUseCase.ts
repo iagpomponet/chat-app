@@ -9,7 +9,6 @@ class GetContactUseCase {
   // TODO: Don't let people filter contacts by photo, date or password
   async execute(where: FindOptionsWhere<Contact>) {
     const repo = AppDataSource.getRepository(Contact);
-
     const contact = await repo.findBy(where);
 
     if (!contact?.length) {

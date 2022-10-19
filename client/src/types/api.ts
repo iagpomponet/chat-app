@@ -15,3 +15,11 @@ export interface SignUpI {
   password: string;
   email: string;
 }
+
+export interface Contact {
+  id: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  profilePhoto: string;
+}
