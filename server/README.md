@@ -1,11 +1,7 @@
-# Awesome Project Build with TypeORM
+- create migration 
+* typeorm migration:create ./path-to-migrations-dir/PostRefactoring
 
-Steps to run this project:
+- run migration  
+* yarn typeorm migration:run -d src/data-source.ts
 
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
-
-
-* Create migration 
-- yarn typeorm migration:create ./src/database/migrations/<migration-name>
+* yarn typeorm migration:generate -d src/data-source.ts src/database/migrations/RelationContactMessage

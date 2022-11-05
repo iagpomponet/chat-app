@@ -5,6 +5,7 @@ const ERRORS = {
   WRONG_CREDENTIALS: "Invalid email or password",
   INVALID_TOKEN: "Invalid token",
   USER_DOES_NOT_EXIST: "User does not exist",
+  NO_NAME_PROVIDED: "You must provide a name",
 };
 
 const SUCCESS = {

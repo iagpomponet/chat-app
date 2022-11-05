@@ -7,6 +7,8 @@ import * as cors from "cors";
 import { AppDataSource } from "./data-source";
 
 import contactsRoutes from "./routes/contacts.routes";
+import messageGroupRoutes from "./routes/messageGroup.routes";
+import messageRoutes from "./routes/messages.routes";
 
 // get config vars
 dotenv.config();
@@ -29,6 +31,9 @@ AppDataSource.initialize()
     // this is for being able to get body json from request
     app.use(express.json());
 
+    // routes
     app.use("/contacts", contactsRoutes);
+    app.use("/messageGroup", messageGroupRoutes);
+    app.use("/messages", messageRoutes);
   })
   .catch((error) => console.log(error));
