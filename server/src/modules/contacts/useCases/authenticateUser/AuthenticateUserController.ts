@@ -26,9 +26,7 @@ class AuthenticateUserController {
       const response = await useCase.execute({ email, password });
       const token = generateAccessToken(response);
 
-      return res
-        .cookie(authCookieName, token, authCookieConfig)
-        .json(defaultSuccessMessage(SUCCESS.AUTH_SUCCESS));
+      return res.cookie(authCookieName, token, authCookieConfig).json(response);
     } catch (err) {
       handleError(err, res);
     }

@@ -44,7 +44,7 @@ const Signup = () => {
       password,
     });
 
-    navigate("/home");
+    navigate("/chat");
   };
 
   return (

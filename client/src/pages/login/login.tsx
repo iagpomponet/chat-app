@@ -53,7 +53,7 @@ const Login = () => {
       email,
       password,
     });
-    navigate("/home");
+    navigate("/chat");
   };
 
   return (

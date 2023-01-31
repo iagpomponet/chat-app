@@ -26,7 +26,7 @@ class Message {
   @Column()
   messageText: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ nullable: true })
   sentDateTime: Timestamp;
 
   @ManyToOne(() => Contact)

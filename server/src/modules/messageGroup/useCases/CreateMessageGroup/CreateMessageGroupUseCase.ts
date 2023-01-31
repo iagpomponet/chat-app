@@ -19,8 +19,6 @@ class CreateMessageGroupUseCase {
       groupName,
     });
 
-    console.log("group :>> ", group);
-
     await repo.save(group);
 
     return group;

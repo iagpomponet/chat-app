@@ -1,9 +1,17 @@
+import ChatHome from "../../components/ChatHome/ChatHome";
 import { useGetContact } from "../../services/api";
 
 const Chat = () => {
-  const { data: userData } = useGetContact();
+  // TODO: Handle logout
+  const id = localStorage.getItem("userId");
+  const { data: userData } = useGetContact(id || "");
 
-  return <div>Chat</div>;
+  console.log("id :>> ", id);
+  console.log("userData :>> ", userData);
+
+  if (!userData) return <div></div>;
+
+  return <ChatHome userData={userData.data[0]} />;
 };
 
 export default Chat;
