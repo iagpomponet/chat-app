@@ -1,8 +1,10 @@
 import {
+  Column,
   CreateDateColumn,
   Entity,
   OneToOne,
   PrimaryColumn,
+  Timestamp,
   UpdateDateColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
@@ -23,7 +25,7 @@ class GroupMember {
   @CreateDateColumn()
   joinedDateTime: string;
 
-  @UpdateDateColumn()
+  @Column({ nullable: true })
   leftDateTime: string;
 
   constructor() {

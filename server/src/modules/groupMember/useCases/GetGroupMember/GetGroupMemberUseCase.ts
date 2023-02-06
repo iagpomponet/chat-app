@@ -8,7 +8,11 @@ interface GetGroupMemberUseCase {
 class GetGroupMemberUseCase {
   async execute({ where }) {
     const repo = AppDataSource.getRepository(GroupMember);
-    const groupMember = repo.findBy(where);
+
+    console.log("where :>> ", where);
+    const groupMember = await repo.find(where);
+
+    console.log("groupMember :>> ", groupMember);
 
     return groupMember;
   }

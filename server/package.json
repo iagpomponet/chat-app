@@ -16,7 +16,7 @@
       "pg": "^8.4.0",
       "prettier": "^2.7.1",
       "reflect-metadata": "^0.1.13",
-      "typeorm": "0.3.10",
+      "typeorm": "^0.3.10",
       "typescript": "*",
       "uuid": "^9.0.0"
    },

@@ -9,9 +9,9 @@ class GetGroupMemberController {
     const service = new GetGroupMemberUseCase();
 
     try {
-      const { groupId } = req?.body;
+      const { contact } = req?.body;
       const payload = {
-        groupId,
+        contact,
       };
 
       const response = await service.execute({ where: payload });
